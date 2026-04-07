@@ -17,16 +17,33 @@ const ContactSection = () => {
 
     try {
       setIsSending(true);
-      await emailjs.sendForm(
+      const formData = new FormData(form.current);
+      const userName = String(formData.get("user_name") ?? "").trim();
+      const userEmail = String(formData.get("user_email") ?? "").trim();
+      const userMessage = String(formData.get("message") ?? "").trim();
+
+      const formattedMessage = [
+        "",
+        `Sender Name: ${userName}`,
+        `Sender Email: ${userEmail}`,
+        "",
+        userMessage,
+      ].join("\n");
+
+      await emailjs.send(
         "service_q41lvxo",
         "template_aqfqlfn",
-        form.current,
+        {
+          user_name: userName,
+          user_email: userEmail,
+          message: formattedMessage,
+        },
         "sIlFSzgJ0LHqUqAzl",
       );
-      toast.success("Message sent successfully.");
+      toast.success("Email sent successfully.");
       form.current.reset();
     } catch {
-      toast.error("Message could not be sent. Please try again.");
+      toast.error("Email could not be sent. Please try again.");
     } finally {
       setIsSending(false);
     }
