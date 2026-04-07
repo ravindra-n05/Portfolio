@@ -28,6 +28,8 @@ const projects = [
       "A personal portfolio designed to showcase projects, motion design, and a strong frontend visual identity.",
     image: portfolioImg,
     stack: ["Vite", "React", "Tailwind", "TypeScript"],
+    liveHref: "https://portfolio-nu-green-10.vercel.app/",
+    codeHref: "https://github.com/ravindra-n05/portfolio",
   },
   {
     title: "Task Manager Dashboard",
