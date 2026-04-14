@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
-import aiChatImg from "@/assets/project-Shaadi-Jeevan.jpg";
-import ecommerceImg from "@/assets/project-ecommerce.jpg";
+import ShaadiJeevanImg from "@/assets/project-Shaadi-Jeevan.jpg";
+import NexaFlowImg from "@/assets/project-NexaFlow.png";
 import portfolioImg from "@/assets/project-portfolio.jpg";
 import taskManagerImg from "@/assets/project-taskmanager.jpg";
 
@@ -10,17 +10,19 @@ const projects = [
     title: "Shaadi Jeevan Website",
     description:
       "A modern matrimonial platform built using Tailwind CSS, JavaScript, and PHP, focused on delivering a seamless user experience with elegant design and optimized performance.",
-    image: aiChatImg,
+    image: ShaadiJeevanImg,
     stack: ["Php", "JavaScript", "Tailwind"],
     liveHref: "https://shaadijeevan.com/",
     codeHref: "https://github.com/ravindra-n05/shaadi_jeevan",
   },
   {
-    title: "Modern Ecommerce UI",
+    title: "NexaFlow – Modern SaaS Landing Page",
     description:
-      "A responsive storefront with category discovery, product storytelling, and conversion-friendly layouts.",
-    image: ecommerceImg,
-    stack: ["React", "Bootstrap", "REST API"],
+      "A sleek, responsive storefront with smart category discovery and engaging product layouts. Built with JavaScript and Tailwind CSS for smooth performance and a modern dark-themed experience.",
+    image: NexaFlowImg,
+    stack: ["Tailwind", "JavaScript", "CSS"],
+    liveHref: "https://nexa-flow-three.vercel.app/",
+    codeHref: "https://github.com/ravindra-n05/NexaFlow",
   },
   {
     title: "Portfolio Platform",
