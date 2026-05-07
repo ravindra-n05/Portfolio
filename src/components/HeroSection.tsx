@@ -1,15 +1,28 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { BadgeCheck, Code2, Figma, Github, Instagram, Linkedin, Mail } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import profileImg from "@/assets/profile.png";
+import profileLightImg from "@/assets/profile2.png";
 
-const roles = ["Frontend Developer", "UI/UX Designer", "React Developer", "Tech Enthusiast"];
+const roles = ["Frontend Developer", "Full-Stack Developer", "Creative Coder", "Tech Enthusiast"];
 
 const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isLightTheme, setIsLightTheme] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsLightTheme(root.classList.contains("light"));
+
+    syncTheme();
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -45,8 +58,8 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(15,105,122,0.18),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(95,48,255,0.12),transparent_25%),linear-gradient(180deg,rgba(5,12,24,0.96),rgba(6,11,20,1))]" />
-      <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(rgba(0,209,255,0.08)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(circle_at_center,black,transparent_82%)]" />
+      <div className="absolute inset-0 hero-surface" />
+      <div className="absolute inset-0 hero-grid" />
       <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-glow-secondary/10 blur-[120px]" />
 
@@ -101,7 +114,7 @@ const HeroSection = () => {
               <div className="absolute bottom-5 right-10 h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_16px_4px_rgba(34,211,238,0.9)]" />
             </motion.div>
 
-            <div className="absolute inset-[54px] rounded-full bg-[radial-gradient(circle_at_50%_35%,rgba(11,40,98,0.82),rgba(6,12,30,0.97)_70%)] shadow-[0_0_70px_rgba(0,110,255,0.2)]" />
+            <div className="absolute inset-[54px] rounded-full hero-avatar-core shadow-[0_0_70px_rgba(0,110,255,0.2)]" />
             <div className="absolute inset-[42px] rounded-full border border-primary/20 shadow-[0_0_25px_rgba(0,214,255,0.15)]" />
             <div className="absolute inset-[72px] rounded-full border-2 border-[#1f8cff] shadow-[0_0_24px_rgba(31,140,255,0.8)]" />
 
@@ -116,7 +129,7 @@ const HeroSection = () => {
               }}
             >
               <img
-                src={profileImg}
+                src={isLightTheme ? profileLightImg : profileImg}
                 alt="Ravindra Namdev - Tech Student"
                 width={512}
                 height={512}
@@ -124,38 +137,6 @@ const HeroSection = () => {
               />
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 16 }}
-              animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
-              transition={{ delay: 0.8, duration: 0.6, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute right-0 top-10 z-20 flex items-center gap-2 rounded-2xl border border-primary/30 bg-[rgba(7,16,32,0.82)] px-4 py-3 text-sm font-medium text-primary shadow-[0_0_22px_rgba(0,214,255,0.15)] backdrop-blur-xl sm:right-2"
-              style={{ transform: "translateZ(80px)" }}
-            >
-              <Code2 size={16} className="text-primary" />
-              <span>React</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0, y: [0, 10, 0] }}
-              transition={{ delay: 1, duration: 0.6, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute bottom-12 left-0 z-20 flex items-center gap-2 rounded-2xl border border-[#5f60ff]/35 bg-[rgba(11,17,34,0.84)] px-4 py-3 text-sm font-medium text-[#6e7cff] shadow-[0_0_22px_rgba(95,96,255,0.12)] backdrop-blur-xl sm:left-2"
-              style={{ transform: "translateZ(72px)" }}
-            >
-              <Figma size={16} className="text-cyan-300" />
-              <span>UI/UX</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 16 }}
-              animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
-              transition={{ delay: 1.1, duration: 0.6, y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute bottom-14 right-3 z-20 flex items-center gap-2 rounded-full border border-emerald-400/30 bg-[rgba(7,22,27,0.82)] px-4 py-2.5 text-sm font-medium text-slate-100 shadow-[0_0_22px_rgba(16,185,129,0.14)] backdrop-blur-xl"
-              style={{ transform: "translateZ(76px)" }}
-            >
-              <BadgeCheck size={16} className="text-emerald-300" />
-              <span>Available</span>
-            </motion.div>
           </motion.div>
         </motion.div>
 

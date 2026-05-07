@@ -3,7 +3,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import ShaadiJeevanImg from "@/assets/project-Shaadi-Jeevan.jpg";
 import NexaFlowImg from "@/assets/project-NexaFlow.png";
 import portfolioImg from "@/assets/project-portfolio.jpg";
-import taskManagerImg from "@/assets/project-taskmanager.jpg";
+import hypertension from "@/assets/project-hypertension-detection.jpg";
 
 const projects = [
   {
@@ -34,11 +34,11 @@ const projects = [
     codeHref: "https://github.com/ravindra-n05/portfolio",
   },
   {
-    title: "Task Manager Dashboard",
+    title: "Hypertension Detection",
     description:
-      "A productivity dashboard with structured workflows, clean visual hierarchy, and scalable component patterns.",
-    image: taskManagerImg,
-    stack: ["React", "Laravel", "MySQL"],
+      "The dashboard provides real-time health insights, personalized recommendations, and an intuitive user experience with a clean professional UI.",
+    image: hypertension,
+    stack: ["Python", "Html", "CSS"],
   },
 ];
 
