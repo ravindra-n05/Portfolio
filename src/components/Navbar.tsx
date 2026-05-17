@@ -59,7 +59,7 @@ const Navbar = () => {
             {dark ? <Sun size={16} /> : <Moon size={16} />}
           </motion.button>
           <a
-            href="/resume.pdf"
+            href="/Ravindra_Namdev_Resume.pdf"
             download
             className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-primary/40 text-primary font-display text-sm font-semibold hover:glow-border transition-shadow"
           >
