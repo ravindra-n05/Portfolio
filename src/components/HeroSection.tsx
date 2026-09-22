@@ -55,6 +55,7 @@ const HeroSection = () => {
   };
 
   const resetTilt = () => setTilt({ x: 0, y: 0 });
+  const portraitSrc = isLightTheme ? profileLightImg : profileImg;
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
@@ -114,26 +115,29 @@ const HeroSection = () => {
               <div className="absolute bottom-5 right-10 h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_16px_4px_rgba(34,211,238,0.9)]" />
             </motion.div>
 
-            <div className="absolute inset-[54px] rounded-full hero-avatar-core shadow-[0_0_70px_rgba(0,110,255,0.2)]" />
-            <div className="absolute inset-[42px] rounded-full border border-primary/20 shadow-[0_0_25px_rgba(0,214,255,0.15)]" />
-            <div className="absolute inset-[72px] rounded-full border-2 border-[#1f8cff] shadow-[0_0_24px_rgba(31,140,255,0.8)]" />
+            <div className="absolute inset-[54px] rounded-full hero-avatar-core" />
+            <div className="absolute inset-[42px] rounded-full hero-avatar-ring" />
+            <div className="absolute inset-[72px] rounded-full hero-avatar-inner-ring" />
 
             <div className="absolute inset-[56px] rounded-full bg-primary/10 blur-2xl" />
 
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="relative z-10 h-[250px] w-[250px] overflow-hidden rounded-full sm:h-[310px] sm:w-[310px]"
+              aria-label="Ravindra Namdev - Tech Student"
+              className="hero-portrait-frame relative z-10 h-[250px] w-[250px] overflow-hidden rounded-full sm:h-[310px] sm:w-[310px]"
               style={{
                 transform: "translateZ(48px)",
-                filter: "drop-shadow(0 24px 30px rgba(0,0,0,0.45))",
               }}
             >
               <img
-                src={isLightTheme ? profileLightImg : profileImg}
-                alt="Ravindra Namdev - Tech Student"
+                key={portraitSrc}
+                src={portraitSrc}
+                alt=""
                 width={512}
                 height={512}
-                className="h-full w-full object-cover object-top"
+                decoding="async"
+                draggable={false}
+                className="block h-full w-full object-cover object-top"
               />
             </motion.div>
 
