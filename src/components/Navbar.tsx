@@ -63,7 +63,7 @@ const Navbar = () => {
             download
             className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-primary/40 text-primary font-display text-sm font-semibold hover:glow-border transition-shadow"
           >
-            <Download size={16} />
+            <Download size={16} />  
             Resume
           </a>
           <a

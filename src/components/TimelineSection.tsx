@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const timeline = [
   {
-    year: "2025 - Present",
+    year: "2025 - 2026",
     title: "Frontend Developer",
     org: "Viraj Soft Tech Solutions, Jabalpur",
     desc: "Building modern web applications using React, Tailwind CSS, and Laravel for various clients.",
@@ -12,7 +12,7 @@ const timeline = [
     type: "work" as const,
   },
   {
-    year: "2025 - Present",
+    year: "2025 - 2026",
     title: "Web Development Intern",
     org: "Viraj Soft Tech Solutions, Jabalpur",
     desc: "Developed responsive UI components, collaborated with design teams, and optimized application performance.",
