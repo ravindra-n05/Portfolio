@@ -28,7 +28,7 @@ const timeline = [
     type: "education" as const,
   },
   {
-    year: "2023",
+    year: "2022 - 2023",
     title: "Higher Secondary (12th)",
     org: "Millennium Academy H.S. School, Jabalpur",
     desc: "Completed with distinction in Mathematics and Science.",
